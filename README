@@ -1,0 +1,14 @@
+Log Django exceptions to fixx. 
+    
+NOTE : Only works with fixx 1.8+
+       
+This middleware class uses the fixx API to submit a new issue to your fixx instance everytime there is an exception in Django.
+    
+In order for this middleware to work correctly, you will need the following parameters to be set in your settings.py.
+    
+FIXX_URL : Base URL of your fixx installation without the 'http://' and trailing slash. Ex. example.com:9000 or fixx.mydomain.com:9000
+FIXX_USER : Username of account used to log the issue
+FIXX_PASSWORD : Password of the account used to log the issue
+FIXX_DEFAULT_AREA : The id for default area to log issues to
+    
+Finally, you need to add this middleware to your MIDDLEWARE_CLASSES in settings.py
