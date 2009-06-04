@@ -1,14 +1,27 @@
-Log Django exceptions to fixx. 
-    
-NOTE : Only works with fixx 1.8+
-       
+h2. Purpose
+A set of middleware classes for Django to interact with the fixx bug tracking system. Currently, the only thing you can do is log your exceptions to your fixx instance but the hope is that we can look at more ways to integrate Django with fixx using this middleware. 
+
+h2. Requirements   
+* fixx 1.8+
+
+h2. Installation
+As the middleware is packaged with setuptools, so assuming you have setuptools, you just need to run :
+<pre>
+	python setup.py install
+</pre>
+
+h2. Usage  
+
+h3. ExceptionLoggerMiddleware     
 This middleware class uses the fixx API to submit a new issue to your fixx instance everytime there is an exception in Django.
     
 In order for this middleware to work correctly, you will need the following parameters to be set in your settings.py.
-    
+
+<pre>  
 FIXX_URL : Base URL of your fixx installation without the 'http://' and trailing slash. Ex. example.com:9000 or fixx.mydomain.com:9000
 FIXX_USER : Username of account used to log the issue
 FIXX_PASSWORD : Password of the account used to log the issue
 FIXX_DEFAULT_AREA : The id for default area to log issues to
+</pre>
     
 Finally, you need to add this middleware to your MIDDLEWARE_CLASSES in settings.py
