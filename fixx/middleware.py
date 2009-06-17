@@ -23,7 +23,6 @@ class ExceptionLoggerMiddleware(object):
     """
     
     def process_exception(self, request, exception):
-        print "logging exceptions"
         bug = {}
         bug["area"] = settings.FIXX_DEFAULT_AREA
         try:
